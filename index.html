@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagat Komal Arvindbhai | Interactive Resume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .resume-container {
+            background: #fff;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative; /* This keeps the image locked inside the box */
+        }
+        .header {
+            background: #003366; 
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 2.5em; }
+        
+        .tabs { display: flex; background: #e0e6ed; cursor: pointer; }
+        .tab { flex: 1; padding: 15px; text-align: center; font-weight: bold; }
+        .tab.active { background: #fff; border-bottom: 3px solid #003366; color: #003366; }
+
+        .content-section {
+            display: none;
+            padding: 40px;
+            min-height: 300px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        .content-section.active { display: block; }
+
+        #profile { background-color: #f69697; position: relative; } 
+        #education { background-color: #79baec; }  
+        #career-objective { background-color: #ffa07a; }
+        #skills { background-color: #90ee99; } 
+
+        /* FIXED IMAGE CSS */
+        .profile-photo {
+            position: absolute;
+            top: 130px;
+            right: 60px;
+            width: 130px;
+            height: 150px;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        h2 { color: #003366; border-bottom: 2px solid #003366; padding-bottom: 5px; }
+        ul { list-style-type: square; }
+        li { margin-bottom: 12px; line-height: 1.6; }
+
+        /* Responsive adjustment for small screens */
+        @media (max-width: 600px) {
+            .profile-photo {
+                position: static;
+                display: block;
+                margin: 0 auto 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <div class="header">
+        <h1>BHAGAT KOMAL ARVINDBHAI</h1>
+        <p>| B.Sc Nursing Student | Aspiring Nursing Officer |</p>
+        <p>| Rajkot, Gujarat |</p>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="openTab(event, 'profile')">Profile</div>
+        <div class="tab" onclick="openTab(event, 'education')">Education</div>
+        <div class="tab" onclick="openTab(event, 'career-objective')">Objective</div>
+        <div class="tab" onclick="openTab(event, 'skills')">Skills</div>
+    </div>
+
+    <div id="profile" class="content-section active">
+        <img src="https://raw.githubusercontent.com/pal693806-ux/Komal-resume/main/photo.jpeg?raw=true" alt="Profile Photo" class="profile-photo">
+        <h2>Personal Information</h2>
+        <ul>
+            <li><strong>Name :</strong> Bhagat Komal Arvindbhai</li>
+            <li><strong>Father's Name :</strong> Bhagat Arvindbhai Munnalal</li>
+            <li><strong>Mother's Name :</strong> Bhagat Anitaben</li>
+            <li><strong>Date of Birth :</strong> 11/08/2004</li>
+            <li><strong>Contact No. :</strong> +91 7487092371</li>
+            <li><strong>Email ID. :</strong> komalbhagat112004@gmail.com</li>
+            <li><strong>Address :</strong> House No. 154, Harshidhi Park Street No. 4, Near Neelraj School, Mahika Gam, P.O.- Bedipara, District - Rajkot (GUJARAT) - 360003</li>
+        </ul>
+    </div>
+
+    <div id="education" class="content-section">
+        <h2>Academic Background</h2>
+        <ul>
+            <li><strong>Bachelor of Science (Nursing)</strong><br> Shree H.N. Shukla Nursing Institute, Rajkot | Saurashtra University | Gujarat | 2026 </li>
+            <li><strong>Senior Secondary Education (Class 12)</strong><br> Shree Bai Saheb BA Girl's High School, Rajkot | GSEB | 2021 | Aggregate: 54.54%</li>
+            <li><strong>Secondary Education (Class 10)</strong><br> Smt. R.H. & V.T. Kotak kanya Vinay Mandir, Rajkot | GSEB | 2019 | Aggregate: 80.57%</li>
+     </ul>
+    </div>
+  
+    <div id="career-objective" class="content-section">
+        <h2>Professional Objective</h2>
+        <p><strong>Compassionate and dedicated Bachelor of Science (Nursing) graduate with a solid foundation in patient assessment, medication administration and emergency care. Commited to delivering high quality clinical training in patient assessment and medication administration. Seeking a Staff Nurse position to utilize my clinical skills and contribute to excellent patient outcomes as a healthcare team.</strong></p>
+    </div>
+
+    <div id="skills" class="content-section">
+        <h2>Core Competencies</h2>
+        <ul>
+            <li><strong>Practical Knowledge :</strong> Applied Nursing Practical Knowledge, Patient Assessment, Medication Assistance</li>
+            <li><strong>Communication :</strong> Fluent in English, Hindi, and Gujarati.</li>
+            <li><strong>Soft Skills :</strong> Analytical Problem Solving and Disciplined Preparation.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, sectionName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("content-section");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(sectionName).style.display = "block";
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
